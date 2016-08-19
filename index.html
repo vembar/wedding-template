@@ -25,6 +25,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/kinetic.js"></script>
 <script type="text/javascript" src="js/jquery.final-countdown.js"></script>
+<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+<script type="text/javascript" src="js/jquery.fittext.js"></script>
+<script type="text/javascript" src="js/creative.js"></script>
 <script type="text/javascript">  
     $('document').ready(function() {
         var seconds = new Date().getTime() / 1000;
@@ -32,6 +35,38 @@
             'start': 1362139200,
             'end': 1480703400,
             'now': seconds       
+        });
+        $('.page-scroll').bind('click', function(event) {
+            var $anchor = $(this);
+            $('html, body').stop().animate({
+                scrollTop: ($($anchor.attr('href')).offset().top - 50)
+            }, 1250, 'easeInOutExpo');
+            event.preventDefault();
+        });
+        // Highlight the top nav as scrolling occurs
+        $('body').scrollspy({
+            target: '.navbar-fixed-top',
+            offset: 51
+        })
+
+        // Closes the Responsive Menu on Menu Item Click
+        $('.navbar-collapse ul li a').click(function() {
+            $('.navbar-toggle:visible').click();
+        });
+
+        // Fit Text Plugin for Main Header
+        $("h1").fitText(
+            1.2, {
+                minFontSize: '35px',
+                maxFontSize: '65px'
+            }
+        );
+
+        // Offset for Main Navigation
+        $('#mainNav').affix({
+            offset: {
+                top: 100
+            }
         });
     });
 </script>
@@ -54,16 +89,19 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#about">About us</a>
+                        <a class="page-scroll" href="#countdown">Countdown</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#info">Read &amp; Learn</a>
+                        <a class="page-scroll" href="#bride-groom">About us</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#showcase">Showcase</a>
+                        <a class="page-scroll" href="#history">History</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#get-started">Get Started</a>
+                        <a class="page-scroll" href="#family">Family</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#invite">Join us</a>
                     </li>
                 </ul>
             </div>
@@ -145,17 +183,94 @@
     </section>
 
     <section id="bride-groom">
-        <span class="section-header">Meet the bride &amp; the groom</span>
-        <div class="row show-grid">
+        <span class="section-header">Meet the bride &amp; groom</span>
+        <div class="row show-grid" style="margin-top:50px;">
             <div class="col-md-6">
+                <img class="img-circle" src="img/person-1.jpg">
                 <h1 class="person-name">Nandini</h1>
+                <p class="person-description">This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                </p>
             </div>
             <div class="col-md-6">
-                <h1 lass="person-name">Suraj</h1>
+                <img class="img-circle" src="img/person-2.jpg">
+                <h1 class="person-name">Suraj</h1>
+                <p class="person-description" style="margin-right:25px;">This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                </p>
             </div>
         </div>
     </section>
-</div>
+
+    <section id="history">
+        <span class="section-header">How it happened</span>
+        <div class="row show-grid" style="margin-top:50px;">
+            <div class="col-md-4">
+                <img class="img-square" src="img/first-meeting.jpg">
+                <h1 class="history-name">When we first met</h1>
+                <p class="person-description">This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <img class="img-square" src="img/first-date.jpg">
+                <h1 class="history-name">Our first date</h1>
+                <p class="person-description">This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <img class="img-square" src="img/engagement.jpg">
+                <h1 class="history-name">Engagement</h1>
+                <p class="person-description">This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                This is a lot of text. This is a lot of text. This is a lot of text. This is a lot of text.
+                </p>
+            </div>
+        </div>
     </section>
+
+    <section id="family">
+        <span class="section-header">Meet the family</span>
+        <div class="row show-grid" style="margin-top:50px;">
+            <div class="col-md-4">
+                <img class="img-circle-family" src="img/suraj-dad.jpg">
+                <h1 class="history-name">Hash Dad</h1>
+            </div>
+            <div class="col-md-4">
+                <img class="img-circle-family" src="img/suraj-mom.jpg">
+                <h1 class="history-name">Hash Mom</h1>
+            </div>
+            <div class="col-md-4">
+                <img class="img-circle-family" src="img/suraj-sister.jpg">
+                <h1 class="history-name">Hash Sister</h1>
+            </div>
+        </div>
+        <div class="row show-grid" style="margin-top:50px;">
+            <div class="col-md-6">
+                <img class="img-circle-family" src="img/nandini-dad.jpg">
+                <h1 class="history-name">Nandini Dad</h1>
+            </div>
+            <div class="col-md-6">
+                <img class="img-circle-family" src="img/nandini-mom.jpg">
+                <h1 class="history-name">Nandini Mom</h1>
+            </div>
+        </div>
+    </section>
+
 
 </body>
